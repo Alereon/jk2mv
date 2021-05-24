@@ -31,6 +31,8 @@ bind g "cmd use rocket ; +attack ; wait ; -attack ; cmd use blaster"
 void Cmd_Wait_f( void ) {
 	if ( Cmd_Argc() == 2 ) {
 		cmd_wait = atoi( Cmd_Argv( 1 ) );
+		if (cmd_wait < 0)
+			cmd_wait = 1; // ignore the argument
 	} else {
 		cmd_wait = 1;
 	}
